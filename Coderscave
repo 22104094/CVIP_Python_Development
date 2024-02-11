@@ -1,0 +1,32 @@
+import time
+
+def display_clock():
+    try:
+        while True:
+            current_time = time.localtime()
+            formatted_time = time.strftime("%H:%M:%S %p", current_time)
+            print(formatted_time, end='\r', flush=True)
+            time.sleep(1)
+    except KeyboardInterrupt:
+        pass
+
+def main_menu():
+    print("Welcome to Simple Clock App")
+    print("1. Start Clock")
+    print("2. Quit")
+    choice = input("Enter your choice: ")
+    return choice
+
+def simple_clock_app():
+    while True:
+        choice = main_menu()
+        if choice == '1':
+            display_clock()
+        elif choice == '2':
+            print("Exiting the clock app.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    simple_clock_app()
